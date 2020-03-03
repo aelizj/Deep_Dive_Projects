@@ -35,7 +35,7 @@ class LinkedListTests < Test::Unit::TestCase
 
         assert_equal(list.first_value, "value")
         assert_equal(list.count, 1)
-        assert_not_equal(list.next_element, nil)
+        assert_equal(list.next_element, nil)
     end
 
     def test_add_twice
@@ -45,25 +45,19 @@ class LinkedListTests < Test::Unit::TestCase
 
         assert_equal(list.first_value, "value")
         assert_equal(list.count, 1)
-        assert_not_equal(list.next_element, nil)
+        assert_equal(list.next_element, nil)
 
         list.add_value("value2")
 
         assert_equal(list.first_value, "value")
         assert_equal(list.count, 2)
-        assert_not_equal(list.next_element, nil)
+        assert_equal(list.next_element, nil)
 
         nextElement = list.next_element
 
         assert_equal(nextElement.first_value, "value2")
         assert_equal(nextElement.count, 1)
-        assert_not_equal(nextElement.next_element, nil)
-
-        lastElement = nextElement.next_element
-
-        assert_equal(lastElement.first_value, nil)
-        assert_equal(lastElement.count, 0)
-        assert_equal(lastElement.next_element, nil)
+        assert_equal(nextElement.next_element, nil)
 
         assert_equal(list.last_value, nextElement.first_value)
     end

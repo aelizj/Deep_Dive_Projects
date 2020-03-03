@@ -1,4 +1,5 @@
 require_relative "LinkedListInterface"
+
 class List < LinkedListInterface 
   def initialize
     @count = 0
@@ -6,8 +7,8 @@ class List < LinkedListInterface
     @item
     @first_value
     @last_value
-    @value
-    @next_value
+    #@value
+    #@next_value
   end
 
   def add_value(value)
@@ -38,17 +39,24 @@ class List < LinkedListInterface
   end
   
   def get_value(index)
-    
+      if index > @count || index < 0 
+        return "Index not found"
+      end
+      @item.get_item(index)
   end
   
   def remove_value(index)
-
+    if index > @count || index < 0
+      return "Index not found"
+    end
+    @item.remove_item(index)
   end
   
   def next_element
   end
 end
 
+#----------------------------------------------------
 
 class ListItem
   attr_accessor :value
@@ -64,20 +72,48 @@ class ListItem
       @next_value.add_item(value) 
     end
   end  
+
+  def get_item(index) 
+    if index == 0      
+      return @value
+    else
+      index -= 1
+      @next_value.get_item(index)      
+    end
+  end
+
+  def remove_item(index)
+    if index == 0      
+      return @value
+    else
+      index -= 1
+      @next_value.get_item(index)      
+    end
+  end
+
+  def next_item        
+  end
 end
 
 
 #####################################################
 b = List.new
-b.add_value("cat")
-b.add_value("dog")
-b.add_value("parrot")
-b.add_value("fish")
-p b 
-p b.count
+ b.add_value("cat")
+ b.add_value("dog")
+ b.add_value("parrot")
+ b.add_value("fish")
+p b
+p "COUNT = #{b.count}"
+p b.get_value(0)
 p b.get_value(1)
-p b.first_value
-p b.last_value
+p b.get_value(2)
+p b.get_value(3)
+p b.get_value(-1)
+p b.get_value(25)
+
+b.first_value
+b.last_value
+ b.next_element
 
 
 
