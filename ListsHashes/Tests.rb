@@ -51,7 +51,7 @@ class LinkedListTests < Test::Unit::TestCase
 
         assert_equal(list.first_value, "value")
         assert_equal(list.count, 2)
-        assert_equal(list.next_element, nil)
+        assert_not_equal(list.next_element, nil)
 
         nextElement = list.next_element
 
@@ -74,5 +74,17 @@ class LinkedListTests < Test::Unit::TestCase
         assert_equal(list.count, 2)
         assert_equal(list.first_value, "value1")
         assert_equal(list.last_value, "value3")
+    end
+
+    def test_get_out_of_bounds
+        list = @@linkedListType.new
+
+        assert_raise(IndexError) { list.get_value(-1) }
+        assert_raise(IndexError) { list.get_value(0) }
+
+        list.add_value("value")
+
+        assert_equal(list.get_value(0), "value")
+        
     end
 end

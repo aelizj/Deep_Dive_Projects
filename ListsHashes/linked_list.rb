@@ -1,4 +1,6 @@
 require_relative "LinkedListInterface"
+#--------------------------------------------------
+# CLASS CONTAINING LOGIC FOR LIST
 
 class List < LinkedListInterface 
   def initialize
@@ -7,8 +9,6 @@ class List < LinkedListInterface
     @item
     @first_value
     @last_value
-    #@value
-    #@next_value
   end
 
   def add_value(value)
@@ -26,8 +26,31 @@ class List < LinkedListInterface
     end
   end
 
-  def count   
-    return @count
+  def get_value(index)
+    if index > @count - 1 || index < 0 
+      raise IndexError
+      #return "Index not found"
+    end
+    @item.get_item(index)
+  end
+
+  def remove_value(index) # COULD BE OPTIMIZED TO BE MORE PERFORMANT
+    if index > @count - 1 || index < 0
+      raise IndexError
+      #return "Index not found"
+    end
+    a = @item.select_remove_item(index)    
+    @item.remove_item(index, a)
+    @count -= 1
+  end
+
+  def next_element # NOT COMPLETE
+    if @count <= 1
+      List.new
+      return
+    else
+    return @item.next_item
+    end
   end
 
   def first_value
@@ -37,32 +60,21 @@ class List < LinkedListInterface
   def last_value
     return @last_value
   end
-  
-  def get_value(index)
-      if index > @count || index < 0 
-        return "Index not found"
-      end
-      @item.get_item(index)
-  end
-  
-  def remove_value(index)
-    if index > @count || index < 0
-      return "Index not found"
-    end
-    @item.remove_item(index)
-  end
-  
-  def next_element
+
+  def count   
+    return @count
   end
 end
 
 #----------------------------------------------------
+# CLASS CONTAINING LOGIC FOR INDIVIDUAL LIST ITEMS
 
 class ListItem
   attr_accessor :value
   
   def initialize(value = nil)
     @value = value
+    @@a = nil
   end
 
   def add_item(value)  
@@ -82,53 +94,85 @@ class ListItem
     end
   end
 
-  def remove_item(index)
+  def select_remove_item(index) 
     if index == 0      
-      return @value
+      a = @next_value 
+      return a
     else
       index -= 1
-      @next_value.get_item(index)      
+      @next_value.select_remove_item(index)      
     end
   end
 
-  def next_item        
+  def remove_item(index, a)
+    if (index - 1) == 0
+      @next_value = a
+    else
+      index -= 1
+      @next_value.remove_item(index, a)      
+    end
+  end   
+
+  def next_item
+    l = List.new
+    l.add_value(@next_value)    
+    return l
   end
 end
 
+#####################################################
+# MORE TESTING OF THE STUFF
+
+
+
+c = List.new
+ c.next_element
+
+ c.add_value("value1")
+ c.add_value("value2")
+ c
+
+p d = c.next_element
+p d.first_value
+
+
+# b = List.new
+#  b.add_value("cat")
+#  b.add_value("dog")
+#  b.add_value("parrot")
+#  b.add_value("fish")
+#  p b  
+#  puts ""
+
+# p b.next_element
+
+
+# # p "COUNT = #{b.count}"
+# p b.get_value(0)
+# p b.get_value(1)
+# p b.get_value(2)
+# p b.get_value(3)
+# p b.get_value(-1)
+# p b.get_value(25)
+
+
+# b.first_value
+# b.last_value
+# b.next_element
+
+# puts ">>>> ORIGINAL LIST:"
+# p b
+# puts ""
+
+# b.remove_value(2)
+# b.last_value
+
+# puts ">>>> NEW LIST AFTER REMOVING ITEM:"
+# p b
+
 
 #####################################################
-b = List.new
- b.add_value("cat")
- b.add_value("dog")
- b.add_value("parrot")
- b.add_value("fish")
-p b
-p "COUNT = #{b.count}"
-p b.get_value(0)
-p b.get_value(1)
-p b.get_value(2)
-p b.get_value(3)
-p b.get_value(-1)
-p b.get_value(25)
-
-b.first_value
-b.last_value
- b.next_element
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# TESTING THE STUFF 
 
 
 # p a = List.new
@@ -164,9 +208,11 @@ b.last_value
 # p a 
 # puts ""
 
+
 # p a.first_value
 # p a.last_value
 # puts ""
+
 
 # p a.get_value(0)
 # p a.get_value(1)
@@ -176,60 +222,8 @@ b.last_value
 # p a.get_value(5)
 
 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#######################################################
+# PREVIOUS ATTEMPT - ONE CLASS (FOR PERSONAL REFERENCE)
 
 
 #   def initialize(value = nil, next_value = nil)
@@ -279,46 +273,10 @@ b.last_value
 # p a
 
 
+#######################################################
+# PREVIOUS ATTEMPT - ONE CLASS (FOR PERSONAL REFERENCE)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##################################################################
 # class List < LinkedListInterface
  
 #     @value = value = nil
@@ -384,5 +342,5 @@ b.last_value
 
 # end
 
-####################################################
 
+####################################################

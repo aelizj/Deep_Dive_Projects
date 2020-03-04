@@ -15,10 +15,12 @@ class LinkedListInterface
         raise "Property \"last_value\" is not implemented."
     end
 
+    # Raises an IndexError when the index is out of bounds
     def get_value(index)
         raise "Method \"get_value\" is not implemented."
     end
 
+    # Raises an IndexError when the index is out of bounds
     def remove_value(index)
         raise "Method \"remove_value\" is not implemented."
     end
