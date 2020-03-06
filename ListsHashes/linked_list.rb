@@ -4,11 +4,11 @@ require_relative "LinkedListInterface"
 
 class List < LinkedListInterface 
   def initialize
-    @count = 0
-    @is_empty =  true
+    @count = 0 # not needed, you don't need an instance field for this
+    @is_empty =  true # not needed, only needed if you have just 1 class
     @item
-    @first_value
-    @last_value
+    @first_value # you dont need an instance field
+    @last_value # you don't need an instance field
   end
 
   def add_value(value)
@@ -16,20 +16,19 @@ class List < LinkedListInterface
       @item = ListItem.new(value)
       @count += 1 
       @is_empty = false  
-      @first_value = @item.value      
+      @first_value = @item.value # this logic doesn't work if you remove things from the beginning
       return
     else 
       @item.add_item(value)
       @count += 1 
-      @last_value = value
+      @last_value = value # this logic doesn't work if you remove things from the end
       return
     end
   end
 
   def get_value(index)
-    if index > @count - 1 || index < 0 
+    if index > @count - 1 || index < 0 # could refactor this into a method since its re-used
       raise IndexError
-      #return "Index not found"
     end
     @item.get_item(index)
   end
@@ -37,7 +36,6 @@ class List < LinkedListInterface
   def remove_value(index) # COULD BE OPTIMIZED TO BE MORE PERFORMANT
     if index > @count - 1 || index < 0
       raise IndexError
-      #return "Index not found"
     end
     a = @item.select_remove_item(index)    
     @item.remove_item(index, a)
@@ -46,10 +44,10 @@ class List < LinkedListInterface
 
   def next_element # NOT COMPLETE
     if @count <= 1
-      List.new
-      return
+      List.new # doesnt do anything
+      return # doesnt do anything
     else
-    return @item.next_item
+      return @item.next_item
     end
   end
 
@@ -74,7 +72,6 @@ class ListItem
   
   def initialize(value = nil)
     @value = value
-    @@a = nil
   end
 
   def add_item(value)  
@@ -89,14 +86,14 @@ class ListItem
     if index == 0      
       return @value
     else
-      index -= 1
+      index -= 1 # don't need to store the result of the subtration
       @next_value.get_item(index)      
     end
   end
 
-  def select_remove_item(index) 
+  def select_remove_item(index) # shouldnt need select and remove 
     if index == 0      
-      a = @next_value 
+      a = @next_value # you don't need the local variable
       return a
     else
       index -= 1
@@ -104,18 +101,18 @@ class ListItem
     end
   end
 
-  def remove_item(index, a)
-    if (index - 1) == 0
+  def remove_item(index, a) # shouldn't the name be replace_item ?
+    if (index - 1) == 0 # index == 1 ?
       @next_value = a
-    else
+    else # what if index is less than 1?
       index -= 1
       @next_value.remove_item(index, a)      
     end
-  end   
+  end
 
-  def next_item
+  def next_item # this has significant functional issues
     l = List.new
-    l.add_value(@next_value)    
+    l.add_value(@next_value.value)    
     return l
   end
 end
@@ -123,17 +120,26 @@ end
 #####################################################
 # MORE TESTING OF THE STUFF
 
+colors = List.new
 
+colors.add_value("azure")
+colors.add_value("beige")
+colors.add_value("crimson")
+colors.add_value("dandelion")
+colors.add_value("ecru")
+colors.add_value("fuschia")
 
-c = List.new
- c.next_element
+p colors
+colors.remove_value(1)
+p colors
 
- c.add_value("value1")
- c.add_value("value2")
- c
+# c = List.new
 
-p d = c.next_element
-p d.first_value
+# c.add_value("value1")
+# c.add_value("value2")
+
+# d = c.next_element
+# p d.first_value
 
 
 # b = List.new
