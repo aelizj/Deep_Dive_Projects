@@ -29,9 +29,8 @@ class List
   def remove_value(index)
     if index > @count - 1 || index < 0
       raise IndexError
-    end
-    a = @item.select_remove_item(index)    
-    @item.replace_item(index, a)
+    end    
+    @item.replace_item(index, @item.select_remove_item(index))
     @count -= 1
   end
 
@@ -82,7 +81,7 @@ class ListItem
 
   def select_remove_item(index) # shouldnt need select and remove 
     if index == 0      
-      return @next_value # you don't need the local variable
+      return @next_value
     else
       @next_value.select_remove_item(index - 1)      
     end
@@ -92,7 +91,7 @@ class ListItem
     if (index == 1)
       @next_value = a
     else # what if index is less than 1?  -->  THIS IS ACCOUNTED FOR IN REMOVE_VALUE METHOD ABOVE
-      @next_value.remove_item(index - 1, a)      
+      @next_value.replace_item(index - 1, a)      
     end
   end
 
@@ -126,7 +125,7 @@ colors.add_value("fuschia")
 
 p colors
 
-p colors.remove_value(1)
+p colors.remove_value(5)
 p colors
 
 
