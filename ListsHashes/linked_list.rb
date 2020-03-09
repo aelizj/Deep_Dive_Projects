@@ -130,7 +130,7 @@ colors.add_value("ecru")
 colors.add_value("fuschia")
 
 p colors
-colors.remove_value(5)
+colors.remove_value(1)
 p colors
 
 # c = List.new
