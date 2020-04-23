@@ -133,7 +133,12 @@ puts
 # p colors.get_value(5)
 puts
 
+<<<<<<< HEAD
+p colors
+colors.remove_value(1)
+=======
 colors.remove_value(5)
+<<<<<<< HEAD
 # p colors
 # puts
 # p colors.get_value(0)
@@ -142,6 +147,17 @@ colors.remove_value(5)
 # p colors.get_value(3)
 # p colors.get_value(4)
 # p colors.get_value(5)
+=======
+>>>>>>> 6bea987b4090740cc0a1b92bbfeae340dbde29b9
+p colors
+puts
+p colors.get_value(0)
+p colors.get_value(1)
+p colors.get_value(2)
+p colors.get_value(3)
+p colors.get_value(4)
+p colors.get_value(5)
+>>>>>>> dbb7694061f3c38a867c77472776bbd2d512333f
 
 # c = List.new
 
