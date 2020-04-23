@@ -1,0 +1,20 @@
+{
+  "done": [],
+  "in-progress": [],
+  "testing": [],
+  "todo": [
+    {
+      "assignedTo": {
+        "name": "Anne"
+      },
+      "creation_time": "2020-03-09T21:27:01.179Z",
+      "description": {
+        "content": "This class should only include functions in order to avoid extra things we need to update all the time. ",
+        "mime": "text/markdown"
+      },
+      "id": "1",
+      "references": [],
+      "title": "Remove fields from linked list"
+    }
+  ]
+}
