@@ -3,8 +3,8 @@ class LinkedListInterface
         raise "Property \"count\" is not implemented."
     end
 
-    def add_value(value)
-        raise "Method \"add_value\" is not implemented."
+    def next_element
+        raise "Property \"next_element\" is not implemented."
     end
 
     def first_value
@@ -13,6 +13,12 @@ class LinkedListInterface
 
     def last_value
         raise "Property \"last_value\" is not implemented."
+    end
+    
+
+
+    def add_value(value)
+        raise "Method \"add_value\" is not implemented."
     end
 
     # Raises an IndexError when the index is out of bounds
@@ -25,7 +31,5 @@ class LinkedListInterface
         raise "Method \"remove_value\" is not implemented."
     end
 
-    def next_element
-        raise "Property \"next_element\" is not implemented."
-    end
+   
 end
