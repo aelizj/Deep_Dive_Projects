@@ -1,0 +1,1 @@
+a = @item.select_remove_item(index)

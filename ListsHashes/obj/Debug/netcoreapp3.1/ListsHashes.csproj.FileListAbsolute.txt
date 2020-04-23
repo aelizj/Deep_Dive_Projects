@@ -1,0 +1,11 @@
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\bin\Debug\netcoreapp3.1\ListsHashes.exe
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\bin\Debug\netcoreapp3.1\ListsHashes.deps.json
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\bin\Debug\netcoreapp3.1\ListsHashes.runtimeconfig.json
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\bin\Debug\netcoreapp3.1\ListsHashes.runtimeconfig.dev.json
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\bin\Debug\netcoreapp3.1\ListsHashes.dll
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\bin\Debug\netcoreapp3.1\ListsHashes.pdb
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\obj\Debug\netcoreapp3.1\ListsHashes.csprojAssemblyReference.cache
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\obj\Debug\netcoreapp3.1\ListsHashes.AssemblyInfoInputs.cache
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\obj\Debug\netcoreapp3.1\ListsHashes.AssemblyInfo.cs
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\obj\Debug\netcoreapp3.1\ListsHashes.dll
+C:\Users\anne1\Deep_Dive_Projects\ListsHashes\obj\Debug\netcoreapp3.1\ListsHashes.pdb
