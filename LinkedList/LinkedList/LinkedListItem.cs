@@ -29,17 +29,36 @@ namespace Lists
 
         public string GetItem(int index)
         {
-            return "";
+            if (index == 0)
+            {
+                return Value;
+            }
+            else
+            {
+               return NextValue.GetItem(index - 1);
+            }
         }
 
-        public string ReplaceItem(int index, string nextVal)
+        public string ReplaceItem(int index, LinkedListItem item)
         {
-            return "";
+           if (index == 1)
+            {
+                return NextValue.ReplaceItem(index - 1, item);                
+            }
+            else if (index == -1)
+            {
+                return new string($"{item}");
+            }
+            else
+            {
+                return ReplaceItem(index - 1, item);                
+            }
         }
 
         public void NextItem()
         {
-
+            var list = new LinkedList();
+            list.Add(NextValue.Value);
         }
     }
 }
