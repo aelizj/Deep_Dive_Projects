@@ -125,12 +125,7 @@ p colors.get_value(4)
 p colors.get_value(5)
 puts
 
-<<<<<<< HEAD
-p colors
-colors.remove_value(1)
-=======
 colors.remove_value(5)
->>>>>>> 6bea987b4090740cc0a1b92bbfeae340dbde29b9
 p colors
 puts
 p colors.get_value(0)
