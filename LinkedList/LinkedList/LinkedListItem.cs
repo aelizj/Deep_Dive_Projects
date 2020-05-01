@@ -35,7 +35,7 @@ namespace Lists
             }
             else
             {
-               return NextValue.GetItem(index - 1);
+                return NextValue.GetItem(index - 1);
             }
         }
 
