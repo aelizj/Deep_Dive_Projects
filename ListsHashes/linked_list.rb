@@ -7,7 +7,6 @@ class List < LinkedListInterface
     @count = 0 # not needed, you don't need an instance field for this
 
     @item
-    @first_value # you dont need an instance field
     @last_value # you don't need an instance field
   end
 
@@ -50,7 +49,7 @@ class List < LinkedListInterface
   end
 
   def first_value
-    return @first_value
+    @item.get_first_item
   end
   
   def last_value
@@ -88,11 +87,16 @@ class ListItem
     end
   end
 
-  def replace_item(index) # shouldn't the name be replace_item ?
-    if (index - 1) == 0 # index == 1 ?
+  def replace_item(index)
+    if index == 1
       @next_value
+      @value
+      @next_value.replace_item(index - 1)
+    elsif index == -1
+      p @value
+      return
     else
-      index -= 1
+      @value
       @next_value.replace_item(index - 1)      
     end
   end
@@ -101,6 +105,10 @@ class ListItem
     l = List.new
     l.add_value(@next_value.value)    
     return l
+  end
+
+  def get_first_item
+    @value
   end
 end
 
@@ -117,15 +125,25 @@ colors.add_value("ecru")
 colors.add_value("fuschia")
 puts
 
-p colors.get_value(0)
-p colors.get_value(1)
-p colors.get_value(2)
-p colors.get_value(3)
-p colors.get_value(4)
-p colors.get_value(5)
+# p colors.get_value(0)
+# p colors.get_value(1)
+# p colors.get_value(2)
+# p colors.get_value(3)
+# p colors.get_value(4)
+# p colors.get_value(5)
 puts
 
+p colors
+colors.remove_value(1)
 colors.remove_value(5)
+# p colors
+# puts
+# p colors.get_value(0)
+# p colors.get_value(1)
+# p colors.get_value(2)
+# p colors.get_value(3)
+# p colors.get_value(4)
+# p colors.get_value(5)
 p colors
 puts
 p colors.get_value(0)
