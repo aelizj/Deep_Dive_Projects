@@ -19,6 +19,7 @@ namespace LinkedListTests
             Assert.AreEqual(list.Get(0), "value1");
         }
 
+        [TestMethod]
         public void TestGetMiddleValue()
         {
             var list = LinkedListFactory.Create();
@@ -31,6 +32,7 @@ namespace LinkedListTests
             Assert.AreEqual(list.Get(1), "value2");
         }
 
+        [TestMethod]
         public void TestGetEndValue()
         {
             var list = LinkedListFactory.Create();

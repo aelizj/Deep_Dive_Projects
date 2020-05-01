@@ -21,7 +21,7 @@ namespace LinkedListTests
             list.Remove(0);
 
             Assert.AreEqual(list.Count, 2);
-            Assert.AreEqual(list.FirstValue, "Value2");
+            Assert.AreEqual(list.FirstValue, "value2");
             Assert.AreEqual(list.LastValue, "value3");
         }
 
@@ -33,12 +33,15 @@ namespace LinkedListTests
             list.Add("value1");
             list.Add("value2");
             list.Add("value3");
+            list.Add("value4"); // removed
+            list.Add("value5");
+            list.Add("value6");
 
-            list.Remove(1);
+            list.Remove(3);
 
-            Assert.AreEqual(list.Count, 2);
+            Assert.AreEqual(list.Count, 5);
             Assert.AreEqual(list.FirstValue, "value1");
-            Assert.AreEqual(list.LastValue, "value3");
+            Assert.AreEqual(list.LastValue, "value6");
         }
 
         [TestMethod]

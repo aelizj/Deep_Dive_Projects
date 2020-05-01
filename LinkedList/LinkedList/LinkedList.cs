@@ -56,15 +56,6 @@ namespace Lists
                 return a;
             }
         }
-
-        public void PrintList(LinkedList list)
-        {
-            while (Item.NextValue != null)
-            {
-                Console.WriteLine(Item);
-            }
-        }
-
         public string FirstItem()
         {
             return Item.GetItem(0);

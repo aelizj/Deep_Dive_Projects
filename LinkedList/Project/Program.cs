@@ -11,11 +11,17 @@ namespace Project
 
             linkedList.Add("one");
             linkedList.Add("two");
+            linkedList.Add("three");
+            linkedList.Add("four");
+            linkedList.Add("five");
+            linkedList.Add("six");
 
             Console.WriteLine(linkedList.Count);
             Console.WriteLine(linkedList.FirstValue);
             Console.WriteLine(linkedList.NextElement);
             Console.WriteLine(linkedList.LastValue);
+
+            linkedList.Remove(2);
         }
     }
 }

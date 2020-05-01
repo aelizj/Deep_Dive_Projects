@@ -33,9 +33,13 @@ namespace Lists
             {
                 return Value;
             }
-            else
+            else if (index > 0)
             {
                 return NextValue.GetItem(index - 1);
+            }
+            else
+            {
+                return Value;
             }
         }
 
@@ -47,7 +51,8 @@ namespace Lists
             }
             else if (index == -1)
             {
-                return new string($"{item}");
+                Value = item.Value;
+                return ($"{Value}");
             }
             else
             {
