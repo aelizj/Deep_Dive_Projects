@@ -35,6 +35,7 @@ namespace Lists
             }
             else if (index > 0)
             {
+                Console.WriteLine($"Value: {Value}, Next Value: {NextValue.Value}");
                 return NextValue.GetItem(index - 1);
             }
             else
@@ -45,13 +46,31 @@ namespace Lists
 
         public string ReplaceItem(int index, LinkedListItem item)
         {
-           if (index == 1)
+            if (index == 1)
             {
+                Console.WriteLine($"INSIDE REPLACE ITEM METHOD - +1 COND");
+                Console.WriteLine($"Value of item.NextValue = {item.NextValue.Value}");
+                Console.WriteLine($"Value of NextValue = {NextValue.Value}");
+                Console.WriteLine($"Value of item.Value = {item.Value}");
+
+                NextValue = item.NextValue;
+
+                Console.WriteLine($"Value of NextValue = {NextValue.Value}");
+                Console.WriteLine($"Value of item.NextValue = {item.NextValue.Value}");
+
                 return NextValue.ReplaceItem(index - 1, item);                
             }
             else if (index == -1)
             {
-                Value = item.Value;
+                Console.WriteLine($"INSIDE REPLACE ITEM METHOD - -1 COND");
+                Console.WriteLine($"Value of item.Value = {item.Value}");
+                Console.WriteLine($"Value of Value = {Value}");
+          
+
+                NextValue = item.NextValue;
+                Console.WriteLine($"Value of item.Value = {item.Value}");
+                Console.WriteLine($"Value of Value = {Value}");
+
                 return ($"{Value}");
             }
             else

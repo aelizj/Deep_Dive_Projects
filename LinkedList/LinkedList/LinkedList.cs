@@ -49,11 +49,24 @@ namespace Lists
             }
             else
             {
+                var a = Item.GetItem(index);
+                var b = Item.ReplaceItem(index, Item.NextValue);
                 Count -= 1;
-                var a = Item.ReplaceItem(index, Item.NextValue);
+
                 FirstValue = FirstItem();
                 LastValue = LastItem();
+
+                Console.WriteLine("");
+                Console.WriteLine($"Index = {index}");
+                Console.WriteLine($"Item = {Item}");
+                Console.WriteLine($"Item.NextValue = {Item.NextValue.Value}");
+                Console.WriteLine($"Item.Value = {Item.Value}");
+                Console.WriteLine($"Item.GetItem(index): {a}");
+                Console.WriteLine($"Item.ReplaceItem(index, nextValue): {b}");
+                Console.WriteLine("");
+                
                 return a;
+                
             }
         }
         public string FirstItem()
